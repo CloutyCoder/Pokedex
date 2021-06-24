@@ -1,0 +1,85 @@
+// Created by Clouty Coder
+// on June 23rd, 2021
+// Written in swift
+
+
+//              Pokemon Class
+class Pokemon {
+  var num = 0
+  var name = ""
+  var type = [""]
+  var ability = [""]
+  
+//               Initialization
+  init(num: Int, name: String, type: [String], ability: [String]) {
+    self.num = num
+    self.name = name
+    self.type = type
+    self.ability = ability
+  }
+
+//                 Method
+  func displayInfo() {
+    let propertyValues = ["Number: \(num)",
+                          "Name: \(name)",
+                          "Type: \(type)",
+                          "Ability: \(ability)",
+                          ]
+
+    for property in propertyValues {
+      print(property)
+    }
+    print("===================================")
+  }
+}
+
+// Pokemon Subclass
+class GigantamaxPokemon: Pokemon {
+  var location = ""
+  var strength = [""]
+  var weakness = [""]
+
+  init(num: Int, name: String, type: [String], ability: [String], location: String, strength: [String], weakness: [String]) {
+    
+    self.location = location
+    self.strength = strength
+    self.weakness = weakness
+
+    super.init(num: num, name: name, type: type, ability: ability)
+    }
+
+//                   Method
+  override func displayInfo() {
+    let propertyValues = [
+                          "Number: \(num)",
+                          "Name: \(name)",
+                          "Type: \(type)",
+                          "Ability: \(ability)",
+                          "Location: \(location)",
+                          "Strength:  \(strength)",
+                          "Weakness:  \(weakness)"
+                          ]
+  for property in propertyValues {
+    print(property)
+    }
+  print("===================================")
+  }
+}
+
+// Bulbasaur
+let bulbasaur = Pokemon(num: 1, name: "Bulbasaur", type:["Grass 🌱", "Poison 💀"], ability: ["Overgrow"])
+
+// Charmander
+let charmander = Pokemon(num: 4, name: "Charmander", type: ["Fire 🔥"], ability: ["Blaze"])
+
+// Squirtle
+let squirtle = Pokemon(num: 7, name: "Squirtle", type: ["Water 💧"], ability: ["Torrent"])
+
+// Giga Charizard
+let charizard = GigantamaxPokemon(num: 6, name: "Giga Charizard",  type: ["Fire 🔥"], ability: ["Blaze"], location: "Lake of Outrage", strength: ["Grass"], weakness: ["Water"])
+
+// Unit Tests
+bulbasaur.displayInfo()
+charmander.displayInfo()
+squirtle.displayInfo()
+charizard.displayInfo()
